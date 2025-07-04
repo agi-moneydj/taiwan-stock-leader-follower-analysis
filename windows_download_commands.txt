@@ -1,0 +1,203 @@
+# Download commands for all sectors (Period: 202501-202506)
+# Total sectors: 66
+# Excluding: DJ_IC基板
+# Copy and paste these commands in Windows Command Prompt
+
+# [1/66] DJ_IC封測
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_IC封測
+
+# [2/66] DJ_IC設計
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_IC設計
+
+# [3/66] DJ_IC零組件通路商
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_IC零組件通路商
+
+# [4/66] DJ_LCD驅動IC
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_LCD驅動IC
+
+# [5/66] DJ_MCU
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_MCU
+
+# [6/66] DJ_MLCC
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_MLCC
+
+# [7/66] DJ_PCB設備
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_PCB設備
+
+# [8/66] DJ_USB IC
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_USB IC
+
+# [9/66] DJ_不織布
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_不織布
+
+# [10/66] DJ_不鏽鋼
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_不鏽鋼
+
+# [11/66] DJ_保健品
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_保健品
+
+# [12/66] DJ_光固化材料
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_光固化材料
+
+# [13/66] DJ_光學鏡頭
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_光學鏡頭
+
+# [14/66] DJ_光纖產品
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_光纖產品
+
+# [15/66] DJ_分離式元件
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_分離式元件
+
+# [16/66] DJ_利基型記憶體IC
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_利基型記憶體IC
+
+# [17/66] DJ_半導體封測材料
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_半導體封測材料
+
+# [18/66] DJ_半導體設備
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_半導體設備
+
+# [19/66] DJ_印刷電路板
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_印刷電路板
+
+# [20/66] DJ_印刷電路板上游與材料
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_印刷電路板上游與材料
+
+# [21/66] DJ_原料藥
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_原料藥
+
+# [22/66] DJ_基因檢測服務
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_基因檢測服務
+
+# [23/66] DJ_太陽能
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_太陽能
+
+# [24/66] DJ_安全監控系統
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_安全監控系統
+
+# [25/66] DJ_專業晶圓代工
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_專業晶圓代工
+
+# [26/66] DJ_工具機業
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_工具機業
+
+# [27/66] DJ_工業電腦
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_工業電腦
+
+# [28/66] DJ_平板鋼
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_平板鋼
+
+# [29/66] DJ_手工具機業
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_手工具機業
+
+# [30/66] DJ_散熱模組
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_散熱模組
+
+# [31/66] DJ_散裝航運
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_散裝航運
+
+# [32/66] DJ_文創產業
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_文創產業
+
+# [33/66] DJ_機器人
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_機器人
+
+# [34/66] DJ_汽車零組件
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_汽車零組件
+
+# [35/66] DJ_消費用電池
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_消費用電池
+
+# [36/66] DJ_無塵室工程
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_無塵室工程
+
+# [37/66] DJ_營建
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_營建
+
+# [38/66] DJ_玻纖布
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_玻纖布
+
+# [39/66] DJ_生物科技
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_生物科技
+
+# [40/66] DJ_石英元件
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_石英元件
+
+# [41/66] DJ_矽晶圓
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_矽晶圓
+
+# [42/66] DJ_砷化鎵相關
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_砷化鎵相關
+
+# [43/66] DJ_肥料
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_肥料
+
+# [44/66] DJ_自行車
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_自行車
+
+# [45/66] DJ_被動元件
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_被動元件
+
+# [46/66] DJ_記憶體模組
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_記憶體模組
+
+# [47/66] DJ_記憶體製造
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_記憶體製造
+
+# [48/66] DJ_設備儀器廠商
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_設備儀器廠商
+
+# [49/66] DJ_設計IP
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_設計IP
+
+# [50/66] DJ_貨櫃航運
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_貨櫃航運
+
+# [51/66] DJ_資安
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_資安
+
+# [52/66] DJ_資產股
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_資產股
+
+# [53/66] DJ_軟板
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_軟板
+
+# [54/66] DJ_軟板上游材料
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_軟板上游材料
+
+# [55/66] DJ_軟體
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_軟體
+
+# [56/66] DJ_遊戲相關
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_遊戲相關
+
+# [57/66] DJ_重電業
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_重電業
+
+# [58/66] DJ_電子化工材料
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_電子化工材料
+
+# [59/66] DJ_電子驗證相關
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_電子驗證相關
+
+# [60/66] DJ_電池材料相關
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_電池材料相關
+
+# [61/66] DJ_電線電纜
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_電線電纜
+
+# [62/66] DJ_電腦板卡
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_電腦板卡
+
+# [63/66] DJ_面板設備
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_面板設備
+
+# [64/66] DJ_類比IC
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_類比IC
+
+# [65/66] DJ_飛機零組件
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_飛機零組件
+
+# [66/66] DJ_高爾夫球
+python GetSectorData.py --start 202501 --end 202506 --sector DJ_高爾夫球
+

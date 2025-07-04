@@ -1,0 +1,55 @@
+# Data files
+csv/
+output/
+*.csv
+
+# Compressed data files
+*.zip
+*.tar.gz
+*.rar
+
+# Log files
+*.log
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+
+# Virtual environments
+venv/
+env/
+.env
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.temp
+
+# Large data directories
+D:/
+data/
+raw_data/
+processed_data/
+
+# Output images (optional - comment out if you want to include charts)
+*.png
+*.jpg
+*.jpeg
+*.html
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/
