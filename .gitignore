@@ -34,6 +34,7 @@ env/
 # OS files
 .DS_Store
 Thumbs.db
+*:Zone.Identifier
 
 # Temporary files
 *.tmp
