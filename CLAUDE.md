@@ -1,7 +1,15 @@
-# SectorAnalysis - 股票資料下載工具
+# SectorAnalysis - 台灣股票類股領漲跟漲分析系統
 
 ## 概述
-本專案提供Python腳本，用於透過DJFile指令從s-vgtick01伺服器下載股票市場資料（TICK資料和TA統計資料）。此腳本可處理多個類股，並自動處理跨類股的重複股票。
+本專案提供完整的台灣股票類股分析工具，包含資料下載、轉換與進階領漲跟漲分析功能。系統可自動下載股票TICK資料，轉換為分析格式，並執行類股內的領漲跟漲關係分析。
+
+## 系統架構
+
+### 核心功能模組
+1. **資料下載模組** (`GetSectorData.py`) - 從伺服器下載原始股票資料
+2. **類股分析模組** (`SectorAnalyzer.py`) - 轉換資料並產生合併資料集
+3. **領漲跟漲分析模組** (`sector_leader_follower_analyzer.py`) - 執行進階分析
+4. **自動化腳本** (`analyze_sectors.sh`) - 一鍵執行完整分析流程
 
 ## 前置需求
 
@@ -45,32 +53,144 @@ dir djfile.exe  # 應顯示檔案存在
 
 ## 使用方法
 
-### 基本指令結構
+### 🚀 快速開始 - 完整類股分析
+
+#### 分析所有產業（推薦）
 ```bash
-python GetSectorData.py --start YYYYMM --end YYYYMM --sector SECTOR_LIST
+./analyze_sectors.sh --start 202505 --end 202506
 ```
 
-### 參數說明
-- `--start`：開始期間，YYYYMM格式（例：202501）
-- `--end`：結束期間，YYYYMM格式（例：202506）
-- `--sector`：逗號分隔的類股名稱清單（例：DJ_IC基板,DJ_IC封測）
-
-### 使用範例
-
-#### 單一類股
+#### 分析指定產業
 ```bash
-python GetSectorData.py --start 202501 --end 202506 --sector DJ_IC基板
+./analyze_sectors.sh --start 202505 --end 202506 --sectors "IC基板,IC設計,散熱模組"
 ```
 
-#### 多個類股
+### 📊 分析輸出
+每個類股分析會產生以下檔案（位於 `output/{類股名稱}/`）：
+
+#### 核心資料檔案
+- **`combined_data_debug.csv`** - 合併的原始資料（32K+ 筆記錄）
+- **`analysis_summary.txt`** - 基礎統計分析摘要
+- **`leader_follower_analysis_report.txt`** - 詳細領漲跟漲分析報告
+
+#### 視覺化圖表
+- **`leader_follower_analysis_relation.png`** - 🌟股票關係圖表
+- **`leader_follower_comprehensive_analysis.png`** - 統計圖表
+- **`interactive_multi_stock_trend_YYYYMMDD.html`** - 🌟互動式股票走勢圖
+
+#### 數據表格
+- **`leader_follower_pairs_detailed.csv`** - 詳細配對數據
+- **`leader_follower_summary.csv`** - 配對摘要表
+- **`signal_table_YYYYMMDD.csv`** - 信號編號說明表
+
+### 🔧 進階使用
+
+#### 1. 純資料下載
 ```bash
-python GetSectorData.py --start 202501 --end 202506 --sector DJ_IC基板,DJ_IC封測,DJ_IC設計
+python GetSectorData.py --start 202505 --end 202506 --sector DJ_IC基板,DJ_IC封測
 ```
 
-#### 擴展日期範圍
+#### 2. 手動兩步驟分析
 ```bash
-python GetSectorData.py --start 202401 --end 202512 --sector DJ_IC基板,DJ_MLCC,DJ_PCB設備
+# Step 1: 產生 combined_data_debug.csv
+python SectorAnalyzer.py --sector DJ_IC基板 --start 202505 --end 202506
+
+# Step 2: 執行領漲跟漲分析
+python sector_leader_follower_analyzer.py output/IC基板/combined_data_debug.csv
 ```
+
+#### 3. 使用自動轉換的CSV分析（實驗性）
+```bash
+./csv_sector_analyze.sh --start 202505 --end 202506 --sectors "DJ_IC基板"
+```
+
+### 📈 分析結果示例
+
+#### 典型輸出摘要（IC基板類股）
+```
+✓ 發現 62 個有效的領漲跟漲配對
+✓ 平均反應時間: 11.5 分鐘
+✓ 平均跟漲幅度: 0.92%
+✓ 最佳領漲股: 8046
+✓ 最佳配對: 8046 → 6552 (成功率: 74%)
+```
+
+### 🎯 常用指令範例
+
+#### 分析半導體相關產業
+```bash
+./analyze_sectors.sh --start 202505 --end 202506 --sectors "IC基板,IC封測,IC設計,IC零組件通路商,LCD驅動IC,MCU"
+```
+
+#### 分析被動元件產業
+```bash
+./analyze_sectors.sh --start 202505 --end 202506 --sectors "被動元件,MLCC,分離式元件"
+```
+
+#### 快速測試單一產業
+```bash
+./analyze_sectors.sh --start 202505 --end 202505 --sectors "IC基板"
+```
+
+## 📁 可分析的產業清單
+
+### 所有可用產業（共60+個）
+```bash
+# 檢視所有可用產業
+ls sectorInfo/DJ_*.txt | sed 's/.*DJ_//g' | sed 's/\.txt$//g'
+```
+
+**主要產業分類**：
+- **半導體**: IC基板, IC封測, IC設計, IC零組件通路商, LCD驅動IC, MCU, 利基型記憶體IC, 記憶體製造, 記憶體模組
+- **電子材料**: 被動元件, MLCC, 分離式元件, 印刷電路板, 軟板, 電子化工材料
+- **設備製造**: 半導體設備, PCB設備, 工具機業, 設備儀器廠商
+- **傳統產業**: 營建, 資產股, 散裝航運, 貨櫃航運, 自行車, 汽車零組件
+- **新興科技**: 生物科技, 資安, 軟體, 遊戲相關, 工業電腦
+
+### 🔄 分析所有產業的完整流程
+
+#### 自動分析所有產業
+```bash
+# 一鍵分析所有60+個產業
+./analyze_sectors.sh --start 202505 --end 202506
+```
+
+#### 手動批次分析（分組執行）
+```bash
+# 半導體相關（約15個產業）
+./analyze_sectors.sh --start 202505 --end 202506 --sectors "IC基板,IC封測,IC設計,IC零組件通路商,LCD驅動IC,MCU,利基型記憶體IC,半導體封測材料,半導體設備,專業晶圓代工,矽晶圓,砷化鎵相關,記憶體模組,記憶體製造,設計IP"
+
+# 電子材料相關（約10個產業）  
+./analyze_sectors.sh --start 202505 --end 202506 --sectors "被動元件,MLCC,分離式元件,印刷電路板,印刷電路板上游與材料,軟板,軟板上游材料,電子化工材料,電線電纜,電腦板卡"
+
+# 設備製造相關（約8個產業）
+./analyze_sectors.sh --start 202505 --end 202506 --sectors "PCB設備,半導體設備,工具機業,手工具機業,設備儀器廠商,面板設備,無塵室工程,機器人"
+```
+
+### 🔍 combined_data_debug.csv 核心檔案
+
+#### 檔案產生流程
+```mermaid
+graph LR
+    A[原始TXT檔案] --> B[SectorAnalyzer.py]
+    B --> C[combined_data_debug.csv]
+    C --> D[sector_leader_follower_analyzer.py]
+    D --> E[分析報告 + 圖表]
+```
+
+#### 檔案內容結構
+**combined_data_debug.csv** 包含以下欄位（共20欄）：
+- **基礎資訊**: symbol, date, time, datetime
+- **價格資料**: open, high, low, close, volume, avg_price  
+- **技術指標**: volume_ratio, price_change_pct, volatility
+- **大單資料**: med_buy, large_buy, xlarge_buy, med_sell, large_sell, xlarge_sell
+- **累積資料**: med_buy_cum, large_buy_cum, xlarge_buy_cum (等)
+
+#### 檔案特色
+- **資料量**: 每個產業通常包含 30K+ 筆記錄
+- **時間範圍**: 依指定期間，精確到分鐘級別
+- **交易時段**: 自動過濾至 09:01-13:30
+- **多股票**: 同一檔案包含該產業所有股票資料
 
 ## 資料結構
 
@@ -80,7 +200,7 @@ sectorInfo/
 ├── DJ_IC基板.txt      # 包含：3037.TW, 8046.TW, 3189.TW等
 ├── DJ_IC封測.txt      
 ├── DJ_IC設計.txt
-└── ...
+└── ... (共60+個產業檔案)
 ```
 
 ### 輸出資料結構

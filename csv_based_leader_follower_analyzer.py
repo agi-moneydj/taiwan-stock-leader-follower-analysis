@@ -195,8 +195,9 @@ class CsvBasedLeaderFollowerAnalyzer:
             self.data['time'] = self.data['time'].str.zfill(6)
             time_formatted = self.data['time'].str[:2] + ':' + self.data['time'].str[2:4] + ':' + self.data['time'].str[4:6]
             
-            # Combine date and time
-            datetime_str = self.data['date'].astype(str) + ' ' + time_formatted
+            # Convert date format from YYYYMMDD to YYYY/MM/DD and combine with time
+            date_formatted = pd.to_datetime(self.data['date'].astype(str), format='%Y%m%d').dt.strftime('%Y/%m/%d')
+            datetime_str = date_formatted + ' ' + time_formatted
             self.data['datetime'] = pd.to_datetime(datetime_str, format='%Y/%m/%d %H:%M:%S')
         else:
             self.data['datetime'] = pd.to_datetime(self.data['datetime'])
